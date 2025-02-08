@@ -27,6 +27,7 @@
         ///  the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
+            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             MnsMain = new MenuStrip();
             файлToolStripMenuItem = new ToolStripMenuItem();
@@ -35,6 +36,7 @@
             toolStripButton1 = new ToolStripButton();
             StsMain = new StatusStrip();
             StlMain = new ToolStripStatusLabel();
+            ImlAppliances = new ImageList(components);
             MnsMain.SuspendLayout();
             TstMain.SuspendLayout();
             StsMain.SuspendLayout();
@@ -62,7 +64,7 @@
             выходToolStripMenuItem.Image = (Image)resources.GetObject("выходToolStripMenuItem.Image");
             выходToolStripMenuItem.ImageScaling = ToolStripItemImageScaling.None;
             выходToolStripMenuItem.Name = "выходToolStripMenuItem";
-            выходToolStripMenuItem.Size = new Size(196, 38);
+            выходToolStripMenuItem.Size = new Size(141, 38);
             выходToolStripMenuItem.Text = "Выход";
             выходToolStripMenuItem.Click += ApplicationExit_Action;
             // 
@@ -105,6 +107,27 @@
             StlMain.Text = "Готов";
             StlMain.TextAlign = ContentAlignment.MiddleLeft;
             // 
+            // ImlAppliances
+            // 
+            ImlAppliances.ColorDepth = ColorDepth.Depth32Bit;
+            ImlAppliances.ImageStream = (ImageListStreamer)resources.GetObject("ImlAppliances.ImageStream");
+            ImlAppliances.TransparentColor = Color.Transparent;
+            ImlAppliances.Images.SetKeyName(0, "air_cleaner.png");
+            ImlAppliances.Images.SetKeyName(1, "air_conditioner.png");
+            ImlAppliances.Images.SetKeyName(2, "boiler.png");
+            ImlAppliances.Images.SetKeyName(3, "chandelier.png");
+            ImlAppliances.Images.SetKeyName(4, "control_panel.png");
+            ImlAppliances.Images.SetKeyName(5, "desk_lamp.png");
+            ImlAppliances.Images.SetKeyName(6, "dishwasher.png");
+            ImlAppliances.Images.SetKeyName(7, "floor_lamp.png");
+            ImlAppliances.Images.SetKeyName(8, "freezer.png");
+            ImlAppliances.Images.SetKeyName(9, "fridge.png");
+            ImlAppliances.Images.SetKeyName(10, "microwave_oven.png");
+            ImlAppliances.Images.SetKeyName(11, "radio_station.png");
+            ImlAppliances.Images.SetKeyName(12, "tv.png");
+            ImlAppliances.Images.SetKeyName(13, "vacuum_cleaner.png");
+            ImlAppliances.Images.SetKeyName(14, "washing_machine.png");
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -139,5 +162,6 @@
         private ToolStripMenuItem файлToolStripMenuItem;
         private ToolStripMenuItem выходToolStripMenuItem;
         private ToolStripButton toolStripButton1;
+        private ImageList ImlAppliances;
     }
 }

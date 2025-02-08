@@ -17,4 +17,19 @@ public class Apartment(string address, List<Appliance> appliances)
     public List<Appliance> Appliances { get; set; } = appliances;
 
     public Apartment():this("", []) {}
+
+    // Сортировка
+    public List<Appliance> OrderBy(Func<Appliance, object> lambda) => 
+        Appliances
+        .OrderBy(lambda)
+        .ToList();
+
+    // Отбор приборов с минимальной стоимостью
+    public List<Appliance> WhereMinPrice() {
+        int minPrice = Appliances.Min(a => a.Price);
+        return 
+            Appliances
+            .Where(a => a.Price == minPrice)
+            .ToList();
+    }
 } // class Apartment

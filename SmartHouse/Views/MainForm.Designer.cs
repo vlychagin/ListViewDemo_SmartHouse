@@ -57,12 +57,28 @@
             ClhState = new ColumnHeader();
             ClhPrice = new ColumnHeader();
             TbpOrdered = new TabPage();
+            LsvOrdered = new ListView();
+            columnHeader1 = new ColumnHeader();
+            columnHeader2 = new ColumnHeader();
+            columnHeader3 = new ColumnHeader();
+            columnHeader4 = new ColumnHeader();
+            columnHeader5 = new ColumnHeader();
+            columnHeader6 = new ColumnHeader();
             TbpSelected = new TabPage();
+            LsvSelected = new ListView();
+            columnHeader7 = new ColumnHeader();
+            columnHeader8 = new ColumnHeader();
+            columnHeader9 = new ColumnHeader();
+            columnHeader10 = new ColumnHeader();
+            columnHeader11 = new ColumnHeader();
+            columnHeader12 = new ColumnHeader();
             MnsMain.SuspendLayout();
             TstMain.SuspendLayout();
             StsMain.SuspendLayout();
             TbcMain.SuspendLayout();
             TbpData.SuspendLayout();
+            TbpOrdered.SuspendLayout();
+            TbpSelected.SuspendLayout();
             SuspendLayout();
             // 
             // MnsMain
@@ -158,6 +174,7 @@
             toolStripButton2.Name = "toolStripButton2";
             toolStripButton2.Size = new Size(62, 36);
             toolStripButton2.Text = "Новый";
+            toolStripButton2.Click += NewApartment_Action;
             // 
             // toolStripButton3
             // 
@@ -296,6 +313,7 @@
             // TbpOrdered
             // 
             TbpOrdered.BorderStyle = BorderStyle.FixedSingle;
+            TbpOrdered.Controls.Add(LsvOrdered);
             TbpOrdered.Location = new Point(4, 30);
             TbpOrdered.Name = "TbpOrdered";
             TbpOrdered.Padding = new Padding(3);
@@ -304,9 +322,57 @@
             TbpOrdered.Text = "Упорядоченные по ...";
             TbpOrdered.UseVisualStyleBackColor = true;
             // 
+            // LsvOrdered
+            // 
+            LsvOrdered.Columns.AddRange(new ColumnHeader[] { columnHeader1, columnHeader2, columnHeader3, columnHeader4, columnHeader5, columnHeader6 });
+            LsvOrdered.Dock = DockStyle.Fill;
+            LsvOrdered.FullRowSelect = true;
+            LsvOrdered.GridLines = true;
+            LsvOrdered.LargeImageList = ImlAppliances;
+            LsvOrdered.Location = new Point(3, 3);
+            LsvOrdered.Margin = new Padding(8, 3, 8, 3);
+            LsvOrdered.MultiSelect = false;
+            LsvOrdered.Name = "LsvOrdered";
+            LsvOrdered.Size = new Size(911, 479);
+            LsvOrdered.SmallImageList = ImlAppliances;
+            LsvOrdered.TabIndex = 1;
+            LsvOrdered.UseCompatibleStateImageBehavior = false;
+            LsvOrdered.View = View.Details;
+            // 
+            // columnHeader1
+            // 
+            columnHeader1.Text = "Усл. изобр.";
+            columnHeader1.Width = 100;
+            // 
+            // columnHeader2
+            // 
+            columnHeader2.Text = "Ид.";
+            columnHeader2.Width = 100;
+            // 
+            // columnHeader3
+            // 
+            columnHeader3.Text = "Наименование";
+            columnHeader3.Width = 240;
+            // 
+            // columnHeader4
+            // 
+            columnHeader4.Text = "Мощность, Вт";
+            columnHeader4.Width = 180;
+            // 
+            // columnHeader5
+            // 
+            columnHeader5.Text = "Состояние";
+            columnHeader5.Width = 140;
+            // 
+            // columnHeader6
+            // 
+            columnHeader6.Text = "Цена, руб.";
+            columnHeader6.Width = 160;
+            // 
             // TbpSelected
             // 
             TbpSelected.BorderStyle = BorderStyle.FixedSingle;
+            TbpSelected.Controls.Add(LsvSelected);
             TbpSelected.Location = new Point(4, 30);
             TbpSelected.Name = "TbpSelected";
             TbpSelected.Padding = new Padding(3);
@@ -314,6 +380,53 @@
             TbpSelected.TabIndex = 2;
             TbpSelected.Text = "Выборка по ...";
             TbpSelected.UseVisualStyleBackColor = true;
+            // 
+            // LsvSelected
+            // 
+            LsvSelected.Columns.AddRange(new ColumnHeader[] { columnHeader7, columnHeader8, columnHeader9, columnHeader10, columnHeader11, columnHeader12 });
+            LsvSelected.Dock = DockStyle.Fill;
+            LsvSelected.FullRowSelect = true;
+            LsvSelected.GridLines = true;
+            LsvSelected.LargeImageList = ImlAppliances;
+            LsvSelected.Location = new Point(3, 3);
+            LsvSelected.Margin = new Padding(8, 3, 8, 3);
+            LsvSelected.MultiSelect = false;
+            LsvSelected.Name = "LsvSelected";
+            LsvSelected.Size = new Size(911, 479);
+            LsvSelected.SmallImageList = ImlAppliances;
+            LsvSelected.TabIndex = 1;
+            LsvSelected.UseCompatibleStateImageBehavior = false;
+            LsvSelected.View = View.Details;
+            // 
+            // columnHeader7
+            // 
+            columnHeader7.Text = "Усл. изобр.";
+            columnHeader7.Width = 100;
+            // 
+            // columnHeader8
+            // 
+            columnHeader8.Text = "Ид.";
+            columnHeader8.Width = 100;
+            // 
+            // columnHeader9
+            // 
+            columnHeader9.Text = "Наименование";
+            columnHeader9.Width = 240;
+            // 
+            // columnHeader10
+            // 
+            columnHeader10.Text = "Мощность, Вт";
+            columnHeader10.Width = 180;
+            // 
+            // columnHeader11
+            // 
+            columnHeader11.Text = "Состояние";
+            columnHeader11.Width = 140;
+            // 
+            // columnHeader12
+            // 
+            columnHeader12.Text = "Цена, руб.";
+            columnHeader12.Width = 160;
             // 
             // MainForm
             // 
@@ -338,6 +451,8 @@
             StsMain.PerformLayout();
             TbcMain.ResumeLayout(false);
             TbpData.ResumeLayout(false);
+            TbpOrdered.ResumeLayout(false);
+            TbpSelected.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
         }
@@ -373,5 +488,19 @@
         private ColumnHeader ClhPower;
         private ColumnHeader ClhState;
         private ColumnHeader ClhPrice;
+        private ListView LsvOrdered;
+        private ColumnHeader columnHeader1;
+        private ColumnHeader columnHeader2;
+        private ColumnHeader columnHeader3;
+        private ColumnHeader columnHeader4;
+        private ColumnHeader columnHeader5;
+        private ColumnHeader columnHeader6;
+        private ListView LsvSelected;
+        private ColumnHeader columnHeader7;
+        private ColumnHeader columnHeader8;
+        private ColumnHeader columnHeader9;
+        private ColumnHeader columnHeader10;
+        private ColumnHeader columnHeader11;
+        private ColumnHeader columnHeader12;
     }
 }

@@ -15,6 +15,11 @@ public partial class MainForm : Form
 
         // Вывести приборы квартиры в заданный ListView
         ToListView(LsvAppliances, Apartment.Appliances);
+        ToListView(LsvOrdered, Apartment.OrderBy(a => a.Power));
+        ToListView(LsvSelected, Apartment.WhereMinPrice());
+
+        TbpOrdered.Text = "Электроприборы по названию";
+        TbpSelected.Text = "Электроприборы с минимальной ценой";
 
         TbcMain.SelectedTab = TbpData;
     } // MainForm
@@ -30,16 +35,32 @@ public partial class MainForm : Form
         LsvDest.Items.Clear();
 
         // Заполнение ListView
-        data.ForEach(appliance => { 
+        data.ForEach(appliance => {
             ListViewItem listViewItem = new ListViewItem("", appliance.ImageIndex);
 
             listViewItem.SubItems.Add($"{appliance.Id}");
             listViewItem.SubItems.Add(appliance.Name);
             listViewItem.SubItems.Add($"{appliance.Power}");
-            listViewItem.SubItems.Add(appliance.State?"включен":"выключен");
+            listViewItem.SubItems.Add(appliance.State ? "включен" : "выключен");
             listViewItem.SubItems.Add($"{appliance.Price:n2}");
 
             LsvDest.Items.Add(listViewItem);
         });
     } // ToListView
+
+    private void NewApartment_Action(object sender, EventArgs e) {
+        Apartment = ApartmentFactory.Create(Random.Shared.Next(12, 16));
+
+        StlMain.Text = $"{Apartment.Address}. Всего приборов: {Apartment.Appliances.Count}";
+
+        // Вывести приборы квартиры в заданный ListView
+        ToListView(LsvAppliances, Apartment.Appliances);
+        ToListView(LsvOrdered, Apartment.OrderBy(a => a.Power));
+        ToListView(LsvSelected, Apartment.WhereMinPrice());
+
+        TbpOrdered.Text = "Электроприборы по названию";
+        TbpSelected.Text = "Электроприборы с минимальной ценой";
+
+        TbcMain.SelectedTab = TbpData;
+    }
 } // class MainForm

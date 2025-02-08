@@ -15,7 +15,7 @@ public partial class MainForm : Form
 
         // Вывести приборы квартиры в заданный ListView
         ToListView(LsvAppliances, Apartment.Appliances);
-        ToListView(LsvOrdered, Apartment.OrderBy(a => a.Power));
+        ToListView(LsvOrdered, Apartment.OrderBy(a => a.Name));
         ToListView(LsvSelected, Apartment.WhereMinPrice());
 
         TbpOrdered.Text = "Электроприборы по названию";

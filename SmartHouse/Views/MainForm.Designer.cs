@@ -38,6 +38,23 @@
             сохранитьКакToolStripMenuItem = new ToolStripMenuItem();
             toolStripMenuItem2 = new ToolStripSeparator();
             выходToolStripMenuItem = new ToolStripMenuItem();
+            упорядочитьToolStripMenuItem = new ToolStripMenuItem();
+            поНазваниюЭлектроприбораToolStripMenuItem = new ToolStripMenuItem();
+            поУбываниюМощностиToolStripMenuItem = new ToolStripMenuItem();
+            поЦенеToolStripMenuItem = new ToolStripMenuItem();
+            поСостояниюToolStripMenuItem = new ToolStripMenuItem();
+            выборкмToolStripMenuItem = new ToolStripMenuItem();
+            приборыСМинимальнойМтоимостьюToolStripMenuItem = new ToolStripMenuItem();
+            приборыСЗаданнымНазваниемToolStripMenuItem = new ToolStripMenuItem();
+            приборыСЗаданнымСостояниемToolStripMenuItem = new ToolStripMenuItem();
+            приборыСЗаданнойМощностьюToolStripMenuItem = new ToolStripMenuItem();
+            средстваToolStripMenuItem = new ToolStripMenuItem();
+            шрифтИЦветВыводаToolStripMenuItem = new ToolStripMenuItem();
+            цветФонаВыводаПриборовToolStripMenuItem = new ToolStripMenuItem();
+            toolStripMenuItem3 = new ToolStripSeparator();
+            сворачиватьАТрейToolStripMenuItem = new ToolStripMenuItem();
+            справкаToolStripMenuItem = new ToolStripMenuItem();
+            оПрограммеToolStripMenuItem = new ToolStripMenuItem();
             TstMain = new ToolStrip();
             toolStripButton1 = new ToolStripButton();
             toolStripButton2 = new ToolStripButton();
@@ -84,7 +101,7 @@
             // MnsMain
             // 
             MnsMain.Font = new Font("Segoe UI", 12F);
-            MnsMain.Items.AddRange(new ToolStripItem[] { файлToolStripMenuItem });
+            MnsMain.Items.AddRange(new ToolStripItem[] { файлToolStripMenuItem, упорядочитьToolStripMenuItem, выборкмToolStripMenuItem, средстваToolStripMenuItem, справкаToolStripMenuItem });
             MnsMain.Location = new Point(0, 0);
             MnsMain.Name = "MnsMain";
             MnsMain.Size = new Size(927, 29);
@@ -141,6 +158,115 @@
             выходToolStripMenuItem.Size = new Size(209, 38);
             выходToolStripMenuItem.Text = "Выход";
             выходToolStripMenuItem.Click += ApplicationExit_Action;
+            // 
+            // упорядочитьToolStripMenuItem
+            // 
+            упорядочитьToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { поНазваниюЭлектроприбораToolStripMenuItem, поУбываниюМощностиToolStripMenuItem, поЦенеToolStripMenuItem, поСостояниюToolStripMenuItem });
+            упорядочитьToolStripMenuItem.Name = "упорядочитьToolStripMenuItem";
+            упорядочитьToolStripMenuItem.Size = new Size(117, 25);
+            упорядочитьToolStripMenuItem.Text = "Упорядочить";
+            // 
+            // поНазваниюЭлектроприбораToolStripMenuItem
+            // 
+            поНазваниюЭлектроприбораToolStripMenuItem.Name = "поНазваниюЭлектроприбораToolStripMenuItem";
+            поНазваниюЭлектроприбораToolStripMenuItem.Size = new Size(297, 26);
+            поНазваниюЭлектроприбораToolStripMenuItem.Text = "По названию электроприбора";
+            поНазваниюЭлектроприбораToolStripMenuItem.Click += OrderByName_Action;
+            // 
+            // поУбываниюМощностиToolStripMenuItem
+            // 
+            поУбываниюМощностиToolStripMenuItem.Name = "поУбываниюМощностиToolStripMenuItem";
+            поУбываниюМощностиToolStripMenuItem.Size = new Size(297, 26);
+            поУбываниюМощностиToolStripMenuItem.Text = "По убыванию мощности";
+            поУбываниюМощностиToolStripMenuItem.Click += OrderByPowerDesc_Action;
+            // 
+            // поЦенеToolStripMenuItem
+            // 
+            поЦенеToolStripMenuItem.Name = "поЦенеToolStripMenuItem";
+            поЦенеToolStripMenuItem.Size = new Size(297, 26);
+            поЦенеToolStripMenuItem.Text = "По цене";
+            поЦенеToolStripMenuItem.Click += OrderByPrice_Action;
+            // 
+            // поСостояниюToolStripMenuItem
+            // 
+            поСостояниюToolStripMenuItem.Name = "поСостояниюToolStripMenuItem";
+            поСостояниюToolStripMenuItem.Size = new Size(297, 26);
+            поСостояниюToolStripMenuItem.Text = "По состоянию";
+            поСостояниюToolStripMenuItem.Click += OrderByState_Action;
+            // 
+            // выборкмToolStripMenuItem
+            // 
+            выборкмToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { приборыСМинимальнойМтоимостьюToolStripMenuItem, приборыСЗаданнымНазваниемToolStripMenuItem, приборыСЗаданнымСостояниемToolStripMenuItem, приборыСЗаданнойМощностьюToolStripMenuItem });
+            выборкмToolStripMenuItem.Name = "выборкмToolStripMenuItem";
+            выборкмToolStripMenuItem.Size = new Size(86, 25);
+            выборкмToolStripMenuItem.Text = "Выборки";
+            // 
+            // приборыСМинимальнойМтоимостьюToolStripMenuItem
+            // 
+            приборыСМинимальнойМтоимостьюToolStripMenuItem.Name = "приборыСМинимальнойМтоимостьюToolStripMenuItem";
+            приборыСМинимальнойМтоимостьюToolStripMenuItem.Size = new Size(357, 26);
+            приборыСМинимальнойМтоимостьюToolStripMenuItem.Text = "Приборы с минимальной мтоимостью";
+            // 
+            // приборыСЗаданнымНазваниемToolStripMenuItem
+            // 
+            приборыСЗаданнымНазваниемToolStripMenuItem.Name = "приборыСЗаданнымНазваниемToolStripMenuItem";
+            приборыСЗаданнымНазваниемToolStripMenuItem.Size = new Size(357, 26);
+            приборыСЗаданнымНазваниемToolStripMenuItem.Text = "Приборы с заданным названием";
+            // 
+            // приборыСЗаданнымСостояниемToolStripMenuItem
+            // 
+            приборыСЗаданнымСостояниемToolStripMenuItem.Name = "приборыСЗаданнымСостояниемToolStripMenuItem";
+            приборыСЗаданнымСостояниемToolStripMenuItem.Size = new Size(357, 26);
+            приборыСЗаданнымСостояниемToolStripMenuItem.Text = "Приборы с заданным состоянием";
+            // 
+            // приборыСЗаданнойМощностьюToolStripMenuItem
+            // 
+            приборыСЗаданнойМощностьюToolStripMenuItem.Name = "приборыСЗаданнойМощностьюToolStripMenuItem";
+            приборыСЗаданнойМощностьюToolStripMenuItem.Size = new Size(357, 26);
+            приборыСЗаданнойМощностьюToolStripMenuItem.Text = "Приборы с заданной мощностью";
+            // 
+            // средстваToolStripMenuItem
+            // 
+            средстваToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { шрифтИЦветВыводаToolStripMenuItem, цветФонаВыводаПриборовToolStripMenuItem, toolStripMenuItem3, сворачиватьАТрейToolStripMenuItem });
+            средстваToolStripMenuItem.Name = "средстваToolStripMenuItem";
+            средстваToolStripMenuItem.Size = new Size(88, 25);
+            средстваToolStripMenuItem.Text = "Средства";
+            // 
+            // шрифтИЦветВыводаToolStripMenuItem
+            // 
+            шрифтИЦветВыводаToolStripMenuItem.Name = "шрифтИЦветВыводаToolStripMenuItem";
+            шрифтИЦветВыводаToolStripMenuItem.Size = new Size(322, 26);
+            шрифтИЦветВыводаToolStripMenuItem.Text = "Шрифт и цвет вывода приборов...";
+            // 
+            // цветФонаВыводаПриборовToolStripMenuItem
+            // 
+            цветФонаВыводаПриборовToolStripMenuItem.Name = "цветФонаВыводаПриборовToolStripMenuItem";
+            цветФонаВыводаПриборовToolStripMenuItem.Size = new Size(322, 26);
+            цветФонаВыводаПриборовToolStripMenuItem.Text = "Цвет фона вывода приборов...";
+            // 
+            // toolStripMenuItem3
+            // 
+            toolStripMenuItem3.Name = "toolStripMenuItem3";
+            toolStripMenuItem3.Size = new Size(319, 6);
+            // 
+            // сворачиватьАТрейToolStripMenuItem
+            // 
+            сворачиватьАТрейToolStripMenuItem.Name = "сворачиватьАТрейToolStripMenuItem";
+            сворачиватьАТрейToolStripMenuItem.Size = new Size(322, 26);
+            сворачиватьАТрейToolStripMenuItem.Text = "Сворачивать а трей";
+            // 
+            // справкаToolStripMenuItem
+            // 
+            справкаToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { оПрограммеToolStripMenuItem });
+            справкаToolStripMenuItem.Name = "справкаToolStripMenuItem";
+            справкаToolStripMenuItem.Size = new Size(82, 25);
+            справкаToolStripMenuItem.Text = "Справка";
+            // 
+            // оПрограммеToolStripMenuItem
+            // 
+            оПрограммеToolStripMenuItem.Name = "оПрограммеToolStripMenuItem";
+            оПрограммеToolStripMenuItem.Size = new Size(185, 26);
+            оПрограммеToolStripMenuItem.Text = "О программе...";
             // 
             // TstMain
             // 
@@ -502,5 +628,22 @@
         private ColumnHeader columnHeader10;
         private ColumnHeader columnHeader11;
         private ColumnHeader columnHeader12;
+        private ToolStripMenuItem упорядочитьToolStripMenuItem;
+        private ToolStripMenuItem выборкмToolStripMenuItem;
+        private ToolStripMenuItem средстваToolStripMenuItem;
+        private ToolStripMenuItem справкаToolStripMenuItem;
+        private ToolStripMenuItem шрифтИЦветВыводаToolStripMenuItem;
+        private ToolStripMenuItem цветФонаВыводаПриборовToolStripMenuItem;
+        private ToolStripMenuItem оПрограммеToolStripMenuItem;
+        private ToolStripMenuItem поНазваниюЭлектроприбораToolStripMenuItem;
+        private ToolStripMenuItem поУбываниюМощностиToolStripMenuItem;
+        private ToolStripMenuItem поЦенеToolStripMenuItem;
+        private ToolStripMenuItem поСостояниюToolStripMenuItem;
+        private ToolStripMenuItem приборыСМинимальнойМтоимостьюToolStripMenuItem;
+        private ToolStripMenuItem приборыСЗаданнымНазваниемToolStripMenuItem;
+        private ToolStripMenuItem приборыСЗаданнымСостояниемToolStripMenuItem;
+        private ToolStripMenuItem приборыСЗаданнойМощностьюToolStripMenuItem;
+        private ToolStripSeparator toolStripMenuItem3;
+        private ToolStripMenuItem сворачиватьАТрейToolStripMenuItem;
     }
 }

@@ -29,7 +29,7 @@ public partial class MainForm : Form
         Application.Exit();
 
 
-    // Вывести коллекцию приборы в заданный ListView
+    // Вывести коллекцию приборов в заданный ListView
     private void ToListView(ListView LsvDest, List<Appliance> data) {
         // чистим элементы ListView
         LsvDest.Items.Clear();
@@ -48,6 +48,7 @@ public partial class MainForm : Form
         });
     } // ToListView
 
+
     private void NewApartment_Action(object sender, EventArgs e) {
         Apartment = ApartmentFactory.Create(Random.Shared.Next(12, 16));
 
@@ -62,5 +63,44 @@ public partial class MainForm : Form
         TbpSelected.Text = "Электроприборы с минимальной ценой";
 
         TbcMain.SelectedTab = TbpData;
-    }
+    } // NewApartment_Action
+
+    #region сортировки копии коллекции
+    // Вывести упорядоченную по названию копию коллекции электроприборов, 
+    // перейти на вкладку упорядоченных электроприборов
+    private void OrderByName_Action(object sender, EventArgs e) {
+        TbpOrdered.Text = "Электроприборы по названию";
+        ToListView(LsvOrdered, Apartment.OrderBy(a => a.Name));
+        TbcMain.SelectedTab = TbpOrdered;
+    } // OrderByName_Action
+
+
+    // Вывести упорядоченную по убыванию мощности копию коллекции электроприборов, 
+    // перейти на вкладку упорядоченных электроприборов
+    private void OrderByPowerDesc_Action(object sender, EventArgs e) {
+        TbpOrdered.Text = "Электроприборы по убыванию мощности";
+        ToListView(LsvOrdered, Apartment.OrderByDescending(a => a.Power));
+        TbcMain.SelectedTab = TbpOrdered;
+    } // OrderByPowerDesc_Action
+
+
+    // Вывести упорядоченную по цене копию коллекции электроприборов, 
+    // перейти на вкладку упорядоченных электроприборов
+    private void OrderByPrice_Action(object sender, EventArgs e) {
+        TbpOrdered.Text = "Электроприборы по цене";
+        ToListView(LsvOrdered, Apartment.OrderBy(a => a.Price));
+        TbcMain.SelectedTab = TbpOrdered;
+    } // OrderByPrice_Action
+
+
+    // Вывести упорядоченную по состоянию копию коллекции электроприборов, 
+    // перейти на вкладку упорядоченных электроприборов
+    private void OrderByState_Action(object sender, EventArgs e) {
+        TbpOrdered.Text = "Электроприборы по состоянию";
+        ToListView(LsvOrdered, Apartment.OrderBy(a => a.State));
+        TbcMain.SelectedTab = TbpOrdered;
+    } // OrderByState_Action
+    #endregion
+
+
 } // class MainForm

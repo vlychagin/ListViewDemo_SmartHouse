@@ -18,11 +18,22 @@ public class Apartment(string address, List<Appliance> appliances)
 
     public Apartment():this("", []) {}
 
-    // Сортировка
+
+    // Возвращает копию коллекции, упорядоченную по возрастанию поля,
+    // заданного лямбда-выражением
     public List<Appliance> OrderBy(Func<Appliance, object> lambda) => 
         Appliances
         .OrderBy(lambda)
         .ToList();
+
+
+    // Возвращает копию коллекции, упорядоченную по убыванию поля,
+    // заданного лямбда-выражением
+    public List<Appliance> OrderByDescending(Func<Appliance, object> lambda) =>
+        Appliances
+        .OrderByDescending(lambda)
+        .ToList();
+
 
     // Отбор приборов с минимальной стоимостью
     public List<Appliance> WhereMinPrice() {
@@ -31,5 +42,5 @@ public class Apartment(string address, List<Appliance> appliances)
             Appliances
             .Where(a => a.Price == minPrice)
             .ToList();
-    }
+    } // WhereMinPrice
 } // class Apartment
